@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block body %}
+<div class="row h-100 {% if len == 0 %} justify-content-center align-items-center {% endif %} p-4">
+    <h1 class="font-bold b-events mt-2 text-dark" id="bliimo-events-txt"><i
+            class="fas fa-calendar-alt mr-1 text-dark"></i> Bliimo events
+    </h1>
+    <div class="col-12 text-center pt-5">
+        <div class="search w-100 pb-2 {% if len == 0 %} d-none {% endif %}">
+            <input type="text" id="search" class="form-control w-25 float-right" placeholder="Search">
+            <h1 class="font-bold b-events text-dark mt-4 mb-4">
+                <i class="fas fa-calendar-alt mr-1 text-dark"></i>
+                Bliimo events</h1>
+        </div>
+        <div class="text-center" id="event-contents">
+            <div class="row events-row {% if len > 0 %} h-100 {% endif %}">
+                {% if len == 0 %}
+                <div class="col-12 text-center">
+                    <img alt="error" id="bliimo-img" src="{{ url_for('static', filename='img/x.png') }}" />
+                    <h3 class="home-welcome mt-2">No events available</h3>
+                    <a class="btn text-dark text-decoration-0 download-btn" id="download-btn" href="javascript:void(0)"
+                        onclick="downloadEvents()">Download
+                        events</a>
+                </div>
+                {% endif %}
+                {% for i in range(0, len) %}
+                <div class="col-md-4 col-lg-3">
+                    <a href="/events/{{events[i]['id']}}" class="text-dark text-decoration-0 events-btn">
+                        <div class="card shadow">
+                            <div class="card-header ellipsis" data-ellipsis="1">{{events[i]['title']}}</div>
+                            <div class="card-body">
+                                <div class="card-text ellipsis" data-ellipsis="5">{{events[i]['description']}}
+                                </div>
+                                <p class=" text-right events-date">
+                                    --- --. --
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+    {% include 'includes/download-events.html' %}
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/actions/events.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Name=App
+Exec=/home/pi/bliimo-box-v2/app.sh
+X-GNOME-Autostart-enabled=true

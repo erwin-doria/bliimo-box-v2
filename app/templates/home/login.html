@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+{% block body %}
+<div class="row h-100 justify-content-center align-items-center">
+    <div class="col-12 text-center">
+        <img alt="bliimo" id="bliimo-img" src="{{ url_for('static', filename='img/bliimo.png') }}" />
+        <h1 class="home-welcome">Welcome to Bliimo box</h1>
+        <form id="loginForm">
+            <div class="text-center center">
+                <input required type="text" name="username" placeholder="Username" id="user"
+                    class="d-block w-100 form-control" value="admin@bliimo.com">
+                <input required type="password" name="password" placeholder="Password" id="pass"
+                    class="d-block w-100 form-control" style="margin:.4em 0" value="8@G00ng$$">
+                <span id="resLogin" class="float-left"></span>
+                <button type="submit" name="btn" id="btnLogin"
+                    class="d-block btn btn btn-info float-right font-weight-bold">Login</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

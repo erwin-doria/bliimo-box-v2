@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Name=Kiosk
+Exec=/home/pi/bliimo-box-v2/kiosk.sh
+X-GNOME-Autostart-enabled=true

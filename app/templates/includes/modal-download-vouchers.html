@@ -1,0 +1,23 @@
+<div class="modal fade" id="download-voucher-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Download vouchers</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Remove old vouchers before downloading?
+                </p>
+            </div>
+            <div class="modal-footer">
+                <input type="hidden" class="hidden-id">
+                <button type="button" class="btn btn-secondary font-weight-bold"
+                    onclick="downloadVouchers(0)">No</button>
+                <button type="button" class="btn btn-info font-weight-bold" onclick="downloadVouchers(1)">Yes</button>
+            </div>
+        </div>
+    </div>
+</div>

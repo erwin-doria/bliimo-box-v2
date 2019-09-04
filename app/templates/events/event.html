@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+
+{% block body %}
+<div class="row h-100 justify-content-center align-items-center">
+    <div class="col-12 text text-center">
+        <h1 class="event-title text-dark mt-4">{{events['title']}}</h1>
+        <div>
+            <img alt="bliimo" class="download-logo mt-5 pt-3"
+                src="{{ url_for('static', filename='img/bliimo.png') }}" />
+            <div>
+                <a class="btn text-dark text-decoration-0 download-btn" id="download-btn" href="javascript:void(0)"
+                    data-toggle="modal" data-target="#download-voucher-modal" data-id="{{events['id']}}">Download
+                    vouchers</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% include 'includes/modal-download-vouchers.html' %}
+{% include 'includes/download-vouchers.html' %}
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/actions/event.js') }}"></script>
+{% endblock %}
