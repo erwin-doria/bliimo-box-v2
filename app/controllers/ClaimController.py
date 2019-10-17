@@ -93,3 +93,8 @@ class ClaimController:
         claim = Claim.query.filter(Claim.id == id).delete()
         db.session.commit()
         return jsonify(claim_schema.dump(claim))
+
+    @staticmethod
+    def showClaimByStatus(status):
+        claims = Claim.query.filter(Claim.status == status).all()
+        return jsonify(claim_schema.dump(claims))

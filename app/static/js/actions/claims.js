@@ -53,6 +53,39 @@ const deleteClaims = async id => {
   }
 };
 
+const uploadVouchers = () => {
+  new Ping().ping('https://google.com', async function(err, data) {
+    if (!err && getStorage('Authorization')) {
+      const data = JSON.parse(await request(
+        'POST',
+        '/voucher/upload',
+        {},
+        {
+          Authorization: getStorage('Authorization')
+        }
+      ));
+      data.length > 0 ? snackbar('Successfully uploaded vouchers') : snackbar('No vouchers uploaded')
+      $('#uploadBtn').hide();
+    }
+  });
+};
+
+  const isNeedToUpload = async ()=>{
+    const data = JSON.parse(await request(
+      'GET',
+      '/claim/unredeemed',
+    ));
+
+    data.length > 0 ? $('#uploadBtn').show() : $('#uploadBtn').hide()
+
+    setTimeout(()=>{
+      isNeedToUpload();
+    },5000)
+
+  }
+
+
 $(document).ready(function() {
   showClaims();
+  isNeedToUpload();
 });

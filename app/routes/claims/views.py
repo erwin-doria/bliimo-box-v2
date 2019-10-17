@@ -18,3 +18,7 @@ def claimVouchers():
 @claims.route('/claim/delete', methods=['DELETE'])
 def delete():
     return ClaimController.delete(request.json['id'])
+
+@claims.route('/claim/unredeemed', methods=['GET'])
+def unredeemed():
+    return ClaimController.showClaimByStatus(0)

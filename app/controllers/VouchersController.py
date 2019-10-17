@@ -56,11 +56,11 @@ class VouchersController:
                 db.session.commit()
 
     def upload(self):
-        vouchers = vouchers_schema.dump(Voucher.query.filter(Voucher.maxPax == Voucher.usedPax).filter(Voucher.isUploaded == 0).all())
+        vouchers = vouchers_schema.dump(Voucher.query.filter(Voucher.isUploaded == 0).all())
         voucherCodes = []
 
         for i in range(0, len(vouchers)):
-            voucherCodes.append(vouchers[i]['voucher'])
+            voucherCodes.append({'code':vouchers[i]['voucher'],'quantity':vouchers[i]['usedPax']})
         
         if(len(voucherCodes) > 0):
             resp = API(self.authorization).uploadVouchers({'codes': voucherCodes}).json()
