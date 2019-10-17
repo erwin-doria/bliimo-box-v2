@@ -1,5 +1,5 @@
-DB_USERNAME = 'bliimo'
-DB_PASSWORD = 'root'
+DB_USERNAME = 'bliimo-box'
+DB_PASSWORD = 'bl11m0123'
 DB_HOST = 'localhost'
 DB_NAME = 'bliimov2'
 SECRET_KEY = 'b11m0123'

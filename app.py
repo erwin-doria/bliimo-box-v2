@@ -8,5 +8,5 @@ app = create_app()
 
 if __name__ == "__main__": 
     app.debug = True 
-    http_server = WSGIServer((IpAddress(), PORT), app)
+    http_server = WSGIServer(('192.168.1.35', PORT), app)
     http_server.serve_forever()
